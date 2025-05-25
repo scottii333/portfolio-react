@@ -2,7 +2,8 @@ import { motion, useMotionValue, useAnimationFrame } from "motion/react";
 import { useRef } from "react";
 
 export const AutoScrollBanner = () => {
-  const content = "The Creative Pass 😄 Watch all courses for just $12/month";
+  const content =
+    "From idea to interaction, I shape how it works and how it feels.";
   const x = useMotionValue(0);
   const containerRef = useRef(null);
   const speed = 0.5; // adjust speed here
