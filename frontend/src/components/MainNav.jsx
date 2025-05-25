@@ -24,23 +24,30 @@ export const MainNav = () => {
 
         {/* Center: Navigation links (desktop only) */}
         <ul className="hidden md:flex gap-6 font-medium text-black">
-          <li>
+          <li
+            className="hover:bg-green-900 hover:text-white px-3 py-2 rounded-2xl transition-colors duration-300
+          cursor-pointer
+        "
+          >
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="hover:bg-green-900 hover:text-white px-3 py-2 rounded-2xl transition-colors duration-300 cursor-pointer">
             <Link to="/">Features</Link>
           </li>
-          <li>
+          <li className="hover:bg-green-900 hover:text-white px-3 py-2 rounded-2xl transition-colors duration-300 cursor-pointer">
             <Link to="/">Projects</Link>
           </li>
-          <li>
+          <li className="hover:bg-green-900 hover:text-white px-3 py-2 rounded-2xl transition-colors duration-300 cursor-pointer">
             <Link to="/">FAQ</Link>
           </li>
         </ul>
 
         {/* Contact button (desktop only) */}
         <div className="hidden md:block">
-          <Link to="/" className="font-semibold text-black">
+          <Link
+            to="/"
+            className="font-semibold text-black hover:bg-green-900 hover:text-white px-4 py-2 rounded-2xl transition-colors duration-300"
+          >
             Contact Us
           </Link>
         </div>
