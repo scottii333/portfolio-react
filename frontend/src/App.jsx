@@ -1,37 +1,50 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { AutoScrollBanner } from "./components/autoScrollHook";
+import { LoadingScreen } from "./components/LoadingScreen.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { Hero } from "./pages/Hero.jsx";
 import { Features } from "./pages/features.jsx";
 import { Faqs } from "./pages/Faqs.jsx";
 import { MainNav } from "./components/MainNav.jsx";
 import { Projects } from "./pages/projects.jsx";
+
 export const App = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <>
-      <aside className="w-full mx-auto flex   ">
-        <AutoScrollBanner />
-      </aside>
-      <main className="bg-white h-auto w-full pt-[5px] pr-[1rem] pl-[1rem] pb-[5px] ">
-        <MainNav />
+      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
-        <section className="border border-gray-300 rounded-2xl flex flex-col items-center justify-center h-[20rem] text-center mb-[5rem]">
-          <Hero />
-        </section>
+      {!isLoading && (
+        <>
+          <aside className="w-full mx-auto flex">
+            <AutoScrollBanner />
+          </aside>
 
-        <section className="border border-gray-300 rounded-2xl flex flex-col items-center justify-center h-[20rem] text-center mb-[5rem]">
-          <Features />
-        </section>
+          <main className="bg-white h-auto w-full pt-[5px] pr-[1rem] pl-[1rem] pb-[5px]">
+            <MainNav />
 
-        <section className="border border-gray-300 rounded-2xl flex flex-col items-center justify-center h-[20rem] text-center mb-[5rem]">
-          <Projects />
-        </section>
+            <section className="border border-gray-300 rounded-2xl flex flex-col items-center justify-center h-[20rem] text-center mb-[5rem]">
+              <Hero />
+            </section>
 
-        <section className="border border-gray-300 rounded-2xl flex flex-col items-center justify-center h-[20rem] text-center mb-[5rem]">
-          <Faqs />
-        </section>
-      </main>
-      <Footer />
+            <section className="border border-gray-300 rounded-2xl flex flex-col items-center justify-center h-[20rem] text-center mb-[5rem]">
+              <Features />
+            </section>
+
+            <section className="border border-gray-300 rounded-2xl flex flex-col items-center justify-center h-[20rem] text-center mb-[5rem]">
+              <Projects />
+            </section>
+
+            <section className="border border-gray-300 rounded-2xl flex flex-col items-center justify-center h-[20rem] text-center mb-[5rem]">
+              <Faqs />
+            </section>
+          </main>
+
+          <Footer />
+        </>
+      )}
     </>
   );
 };
